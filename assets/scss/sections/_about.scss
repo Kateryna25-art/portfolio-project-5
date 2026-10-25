@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+.about {
+  @include section-gap;
+
+  &__box {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 1.4375rem;
+    padding: 6rem 5rem 6.25rem;
+    background-color: $color-lavender;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 17.11%;
+      right: 0;
+      height: 1.4375rem;
+      background: linear-gradient(to right, $color-yellow 73.42%, $color-purple 73.42%);
+    }
+  }
+
+  &__title {
+    max-width: 30.5rem;
+    margin-top: 1.5rem;
+  }
+
+  &__subtitle {
+    max-width: 32rem;
+    margin-top: 1.5rem;
+  }
+
+  &__text {
+    max-width: 32rem;
+    margin-top: 1rem;
+  }
+
+  &__col:first-child &__text {
+    max-width: 31.25rem;
+  }
+
+  &__link {
+    display: block;
+    width: fit-content;
+    margin-top: 1.5rem;
+    line-height: 1.25rem;
+  }
+
+  @include media('tablet') {
+    &__box {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 4rem 3rem;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__box {
+      padding: 3rem 1.5rem;
+
+      &::before {
+        left: 0;
+      }
+    }
+
+    &__title {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+
+    &__subtitle {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.idea/
+.vscode
+node_modules/
+dist/
+dist.zip
+*.sublime*
+npm-debug.*
+*.zip
+*.rar
+yarn-error.*
+.claude/
+*.claude
+claude.json
+claude-config.json

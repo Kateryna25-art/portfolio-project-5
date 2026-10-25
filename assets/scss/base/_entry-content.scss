@@ -1,0 +1,77 @@
+@use '../abstracts' as *;
+
+.entry-content {
+  color: $color-gray;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-dark;
+  }
+
+  > * + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 3rem;
+  }
+
+  > :is(h1, h2, h3, h4, h5, h6) + * {
+    margin-top: 1rem;
+  }
+
+  > * + :is(ul, ol),
+  > :is(ul, ol) + * {
+    margin-top: 1.4375rem;
+  }
+
+  a {
+    color: $color-purple;
+    text-decoration: underline;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.125rem;
+    @include h4;
+    line-height: 2.125rem;
+    color: $color-gray-dark;
+
+    li::marker {
+      font-size: 0.875rem;
+    }
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  img,
+  figure {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1.5rem;
+    @include h4;
+    color: $color-dark;
+    border-left: 4px solid $color-yellow;
+  }
+
+  @include media('mobile-l') {
+    > * + :is(h1, h2, h3, h4, h5, h6) {
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+
+    ul,
+    ol {
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+    }
+  }
+}

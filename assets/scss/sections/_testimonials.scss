@@ -1,0 +1,189 @@
+@use '../abstracts' as *;
+
+.testimonials {
+  padding-top: 6rem;
+
+  &__box {
+    display: grid;
+    grid-template-columns: minmax(0, 26.8125rem) minmax(0, 1fr);
+    padding: 5rem 7rem 4.625rem;
+    background-color: $color-cream;
+  }
+
+  &__intro {
+    padding-top: 0.75rem;
+    padding-right: 2rem;
+  }
+
+  &__title {
+    max-width: 20rem;
+    margin-top: 0.75rem;
+  }
+
+  &__text {
+    max-width: 20rem;
+    margin-top: 1rem;
+  }
+
+  &__slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 19.375rem;
+    padding-left: 5.9375rem;
+    border-left: 1px solid rgba($color-dark, 0.25);
+  }
+
+  &__track {
+    display: flex;
+    flex: 1;
+  }
+
+  &__nav {
+    position: absolute;
+    right: 0;
+    bottom: 0.1875rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @include media('laptop') {
+    &__box {
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+      padding: 4rem 3rem;
+    }
+
+    &__slider {
+      padding-left: 3rem;
+    }
+  }
+
+  @include media('tablet') {
+    padding-top: 4rem;
+
+    &__box {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    &__intro {
+      padding: 0;
+    }
+
+    &__title,
+    &__text {
+      max-width: none;
+    }
+
+    &__slider {
+      min-height: 0;
+      padding: 2.5rem 0 0;
+      border-top: 1px solid rgba($color-dark, 0.25);
+      border-left: 0;
+    }
+
+    &__nav {
+      position: static;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__box {
+      padding: 3rem 1.5rem;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+  }
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  margin: 0;
+
+  &.is-fading {
+    animation: fade-in 0.4s ease;
+  }
+
+  &__quote {
+    @include h4;
+    max-width: 29rem;
+  }
+
+  &__author {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-right: 9.5rem;
+  }
+
+  &__photo {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__name {
+    display: block;
+    @include h4;
+  }
+
+  &__location {
+    display: block;
+    color: $color-gray;
+  }
+
+  @include media('tablet') {
+    &__author {
+      padding-right: 0;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__quote {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+}
+
+.slider-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: $color-dark;
+  background-color: $color-white;
+  border-radius: 50%;
+  transition: background-color $transition, color $transition;
+
+  &--next {
+    width: 3.875rem;
+    height: 3.875rem;
+    color: $color-white;
+    background-color: $color-dark;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $color-dark;
+    background-color: $color-yellow;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 4.25rem;
+
+  &__link {
+    @include h4;
+    color: $color-dark;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-purple;
+    }
+
+    &.is-disabled {
+      color: $color-gray;
+      pointer-events: none;
+    }
+  }
+
+  @include media('mobile-l') {
+    margin-top: 3rem;
+  }
+}

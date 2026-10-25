@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  padding: 0 3rem;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: $color-dark;
+  white-space: nowrap;
+  background-color: $color-yellow;
+  border: 0;
+  transition: background-color $transition;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-yellow-hover;
+  }
+
+  &--white {
+    background-color: $color-white;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-yellow;
+    }
+  }
+}
+
+.link-more {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: $color-purple;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

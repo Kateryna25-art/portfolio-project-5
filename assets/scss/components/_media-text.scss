@@ -1,0 +1,123 @@
+@use '../abstracts' as *;
+
+.media-text {
+  @include section-gap;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 39rem);
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__content {
+    max-width: 33rem;
+  }
+
+  &__subtitle {
+    @include h4;
+    margin-top: 1rem;
+  }
+
+  &__text {
+    margin-top: 1rem;
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 624 / 480;
+    object-fit: cover;
+  }
+
+  &--reverse &__inner {
+    grid-template-columns: minmax(0, 39rem) minmax(0, 1fr);
+  }
+
+  &--reverse &__media {
+    order: -1;
+  }
+
+  &--no-image &__inner,
+  &--no-image.media-text--reverse &__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  &--no-image.media-text--reverse &__content {
+    padding-left: 0;
+  }
+
+  &--reverse &__content {
+    padding-left: 2rem;
+  }
+
+  &--square &__media::before,
+  &--circle &__media::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+  }
+
+  &--square,
+  &--circle {
+    overflow-x: clip;
+  }
+
+  &--square &__media::before {
+    top: 23.75%;
+    left: -9.13%;
+    width: 16.5%;
+    height: 24.17%;
+    background-color: $color-yellow;
+    border-top-left-radius: 3.125rem;
+  }
+
+  &--circle &__media::before {
+    bottom: 0;
+    left: 17.15%;
+    width: 11.86%;
+    aspect-ratio: 1;
+    background-color: $color-purple;
+    border-radius: 50%;
+    transform: translateY(50%);
+  }
+
+  @include media('tablet') {
+    &__inner,
+    &--reverse &__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    &__content {
+      max-width: 40rem;
+    }
+
+    &--reverse &__content {
+      padding-left: 0;
+    }
+
+    &__media {
+      order: -1;
+    }
+
+    &--square &__media::before {
+      border-top-left-radius: 2rem;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__title {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+
+    &__subtitle {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+}

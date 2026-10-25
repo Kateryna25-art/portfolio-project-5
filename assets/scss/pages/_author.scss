@@ -1,0 +1,146 @@
+@use '../abstracts' as *;
+
+%author-column {
+  max-width: calc(64rem + #{$container-padding} * 2);
+}
+
+.author-hero {
+  background-color: $color-lavender;
+
+  &__inner {
+    @extend %author-column;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 2.0625rem;
+    padding-block: 8rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: $container-padding;
+      bottom: 0;
+      left: $container-padding;
+      height: 1.5rem;
+      background: linear-gradient(to right, $color-yellow 73.44%, $color-purple 73.44%);
+    }
+  }
+
+  &__photo {
+    flex-shrink: 0;
+    width: 15.6875rem;
+    aspect-ratio: 251 / 294;
+    overflow: hidden;
+    background-color: $color-light;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    @include h1;
+  }
+
+  &__text {
+    max-width: 41.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .social {
+    margin-top: 1.5rem;
+  }
+
+  @include media('laptop') {
+    &__inner::after {
+      right: $container-padding-tablet;
+      left: $container-padding-tablet;
+    }
+  }
+
+  @include media('tablet') {
+    &__inner {
+      flex-direction: column;
+      gap: 2rem;
+      padding-block: 4rem 5.5rem;
+    }
+
+    &__title {
+      @include h2;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__inner::after {
+      right: $container-padding-mobile;
+      left: $container-padding-mobile;
+    }
+
+    &__photo {
+      width: 10rem;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+  }
+}
+
+.author-posts {
+  @include section-gap;
+  @include section-gap(padding-bottom);
+
+  @media (min-width: 992px) {
+    padding-top: 8.125rem;
+  }
+
+  &__inner {
+    @extend %author-column;
+  }
+
+  &__title {
+    @include h1;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 3.875rem;
+  }
+
+  &__empty {
+    margin-top: 2rem;
+  }
+
+  @include media('mobile-l') {
+    &__title {
+      @include h2;
+    }
+
+    &__list {
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.post-card--author {
+  grid-template-columns: minmax(0, 25.75rem) minmax(0, 1fr);
+
+  .post-card__media {
+    aspect-ratio: 412 / 320;
+  }
+
+  .post-card__title,
+  .post-card__text {
+    max-width: 35rem;
+  }
+
+  @include media('mobile-l') {
+    grid-template-columns: 1fr;
+  }
+}

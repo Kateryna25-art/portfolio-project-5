@@ -1,0 +1,14 @@
+{
+  "name": "blog-theme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sass --watch assets/scss/main.scss:assets/css/main.css --embed-sources",
+    "build": "sass assets/scss/main.scss:assets/css/main.css --style=compressed --no-source-map",
+    "production": "node build-production.mjs"
+  },
+  "devDependencies": {
+    "sass": "^1.106.1",
+    "terser": "^5.36.0"
+  }
+}

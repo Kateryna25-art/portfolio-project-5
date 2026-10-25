@@ -1,0 +1,16 @@
+@use '../abstracts' as *;
+
+.container {
+  width: 100%;
+  max-width: calc(#{$container-width} + #{$container-padding} * 2);
+  margin-inline: auto;
+  padding-inline: $container-padding;
+
+  @include media('laptop') {
+    padding-inline: $container-padding-tablet;
+  }
+
+  @include media('mobile-l') {
+    padding-inline: $container-padding-mobile;
+  }
+}

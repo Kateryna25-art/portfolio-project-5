@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.logo,
+.custom-logo-link {
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  letter-spacing: 0.078rem;
+  color: $color-white;
+}
+
+.custom-logo {
+  width: auto;
+  max-height: 2rem;
+}
+
+.logo__img {
+  display: block;
+  width: 8.75rem;
+  height: auto;
+  margin: -1px 0 0 0.1875rem;
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.nav a {
+  color: $color-white;
+  transition: color $transition;
+
+  &:hover,
+  &[aria-current='page'] {
+    color: $color-yellow;
+  }
+}

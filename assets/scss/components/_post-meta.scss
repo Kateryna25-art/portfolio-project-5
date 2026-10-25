@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.75rem;
+  @include body-2;
+  color: $color-gray-dark;
+
+  &__author {
+    color: $color-purple;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+
+  &--hero {
+    @include body-1;
+    color: $color-white;
+
+    .post-meta__author {
+      color: $color-yellow;
+    }
+  }
+}

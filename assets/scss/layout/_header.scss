@@ -1,0 +1,99 @@
+@use '../abstracts' as *;
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  background-color: $color-dark;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__btn {
+    width: 11.25rem;
+    padding: 0;
+  }
+
+  &__burger {
+    display: none;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: $color-white;
+
+    span,
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0.5rem;
+      right: 0.5rem;
+      height: 2px;
+      background-color: currentColor;
+      transition: transform $transition, opacity $transition;
+    }
+
+    span { top: calc(50% - 1px); }
+    &::before { content: ''; top: 0.75rem; }
+    &::after { content: ''; bottom: 0.75rem; }
+
+    &[aria-expanded='true'] {
+      span { opacity: 0; }
+      &::before { transform: translateY(0.4375rem) rotate(45deg); }
+      &::after { transform: translateY(-0.4375rem) rotate(-45deg); }
+    }
+  }
+
+  @include media('tablet') {
+    &__burger {
+      display: block;
+    }
+
+    &__nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.5rem;
+      padding: 1.5rem $container-padding-tablet 2rem;
+      background-color: $color-dark;
+      border-top: 1px solid rgba($color-white, 0.1);
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-0.5rem);
+      transition: opacity $transition, transform $transition, visibility $transition;
+
+      &.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+      }
+
+      .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+
+    &__btn {
+      width: 100%;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__nav {
+      padding-inline: $container-padding-mobile;
+    }
+  }
+}

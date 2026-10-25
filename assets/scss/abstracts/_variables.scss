@@ -1,0 +1,45 @@
+
+$color-dark: #232536;
+$color-yellow: #ffd050;
+$color-yellow-hover: #edc14a;
+$color-purple: #592ea9;
+$color-purple-light: #6e49b4;
+$color-gray-dark: #4c4c4c;
+$color-gray: #6d6e76;
+$color-light: #f4f4f4;
+$color-lavender: #f4f0f8;
+$color-cream: #fbf6ea;
+$color-dark-light: #2e3040;
+$color-border: #d3d4d6;
+$color-border-light: #f1f1f2;
+$color-divider: #d0d0d3;
+$color-border-dark: #c1c1c3;
+$color-tag: #656773;
+$color-tag-border: #999a9f;
+$color-input-border: #b6b6ba;
+$color-error: #d64545;
+$color-white: #fff;
+
+$color-text: $color-dark;
+$color-bg: $color-white;
+
+$font-heading: 'Sen', Arial, sans-serif;
+$font-main: 'Inter', Arial, sans-serif;
+
+$container-width: 80rem;
+$container-padding: 5rem;
+$container-padding-tablet: 2.5rem;
+$container-padding-mobile: 1.25rem;
+
+$section-gap: 8rem;
+$section-gap-tablet: 5rem;
+$section-gap-mobile: 4rem;
+
+$breakpoints: (
+  'laptop': 1279px,
+  'tablet': 991px,
+  'mobile-l': 767px,
+  'mobile': 479px,
+);
+
+$transition: 0.3s ease;

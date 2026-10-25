@@ -1,0 +1,69 @@
+@use '../abstracts' as *;
+
+.page-banner {
+  padding-block: 5rem;
+  text-align: center;
+  background-color: $color-lavender;
+
+  &__title {
+    @include h1;
+  }
+
+  &__date {
+    margin-top: 0.25rem;
+    color: $color-gray;
+  }
+
+  @include media('mobile-l') {
+    padding-block: 3rem;
+
+    &__title {
+      @include h1;
+    }
+  }
+}
+
+.page-content {
+  max-width: 48rem;
+  margin-inline: auto;
+  @include section-gap;
+  @include section-gap(padding-bottom);
+}
+
+.entry-content--page {
+  color: $color-gray-dark;
+
+  h2 {
+    @include h1;
+  }
+
+  h3 {
+    @include h2;
+  }
+
+  > p + p {
+    margin-top: 1.75rem;
+  }
+
+  > * + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 2rem;
+  }
+
+  > :is(h1, h2, h3, h4, h5, h6) + * {
+    margin-top: 1.5rem;
+  }
+
+  > :is(h1, h2) + * {
+    margin-top: 2rem;
+  }
+
+  @include media('mobile-l') {
+    h2 {
+      @include h3;
+    }
+
+    h3 {
+      @include h4;
+    }
+  }
+}

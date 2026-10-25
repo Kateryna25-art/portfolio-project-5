@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+@mixin media($name) {
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin heading($size, $line, $spacing: normal) {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: $size;
+  line-height: $line;
+  letter-spacing: $spacing;
+}
+
+@mixin display { @include heading(3.5rem, 4rem, -0.125rem); }
+@mixin h1 { @include heading(3rem, 4rem, -0.125rem); }
+@mixin h2 { @include heading(2.25rem, 3rem, -0.125rem); }
+@mixin h3 { @include heading(1.75rem, 2.5rem, -0.0625rem); }
+@mixin h4 { @include heading(1.5rem, 2rem); }
+@mixin h5 { @include heading(1.25rem, 2rem); }
+@mixin h6 { @include heading(1rem, 1.5rem); }
+
+@mixin body-1 {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+@mixin body-2 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@mixin section-gap($prop: padding-top) {
+  #{$prop}: $section-gap;
+
+  @include media('tablet') {
+    #{$prop}: $section-gap-tablet;
+  }
+
+  @include media('mobile-l') {
+    #{$prop}: $section-gap-mobile;
+  }
+}

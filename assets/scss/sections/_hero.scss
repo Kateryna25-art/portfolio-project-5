@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+.hero {
+  display: flex;
+  min-height: 45rem;
+  color: $color-white;
+  background: var(--hero-image) center / cover no-repeat $color-dark;
+
+  &--overlay {
+    background-image: linear-gradient(rgba($color-dark, 0.55), rgba($color-dark, 0.55)), var(--hero-image);
+  }
+
+  &__inner {
+    padding-block: 8rem;
+  }
+
+  &__label {
+    font-weight: 500;
+
+    strong {
+      font-weight: 800;
+    }
+  }
+
+  &__title {
+    @include display;
+    max-width: 50rem;
+    margin-top: 1.5rem;
+  }
+
+  .post-meta {
+    margin-top: 1.5rem;
+  }
+
+  &__text {
+    max-width: 37.5rem;
+    margin-top: 1rem;
+  }
+
+  &__btn {
+    margin-top: 3rem;
+  }
+
+  @include media('tablet') {
+    min-height: 0;
+
+    &__inner {
+      padding-block: 6rem;
+    }
+
+    &__title {
+      @include h1;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__inner {
+      padding-block: 4rem;
+    }
+
+    &__title {
+      font-size: 2.25rem;
+      line-height: 2.75rem;
+    }
+
+    &__btn {
+      margin-top: 2rem;
+    }
+  }
+}

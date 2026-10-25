@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__link {
+    display: block;
+    color: $color-dark;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-purple;
+    }
+
+    .icon {
+      display: block;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &--footer {
+    gap: 1.625rem;
+
+    .social__link {
+      color: $color-gray;
+
+      &:hover {
+        color: $color-yellow;
+      }
+    }
+  }
+}

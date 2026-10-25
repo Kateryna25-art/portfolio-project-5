@@ -1,0 +1,149 @@
+@use '../abstracts' as *;
+
+.post-page {
+  padding-top: 8.25rem;
+
+  &__header {
+    max-width: calc(48rem + #{$container-padding} * 2);
+  }
+
+  &__author {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    margin-top: 0.0625rem;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__author-name {
+    display: block;
+    @include h4;
+    color: $color-purple-light;
+
+    &:hover {
+      color: $color-purple;
+    }
+  }
+
+  &__date {
+    color: $color-gray;
+  }
+
+  &__title {
+    margin-top: 1.5rem;
+  }
+
+  &__category {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.125rem;
+    @include h4;
+
+    &:hover {
+      color: $color-purple;
+    }
+  }
+
+  &__category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    img {
+      flex-shrink: 0;
+      width: 3rem;
+      max-width: none;
+      height: 3rem;
+      object-fit: contain;
+    }
+  }
+
+  &__media {
+    margin-top: 4rem;
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 36.375rem;
+    object-fit: cover;
+  }
+
+  &__content {
+    max-width: 52.625rem;
+    margin: 4rem auto 0;
+  }
+
+  @include media('tablet') {
+    padding-top: 5rem;
+
+    &__title {
+      @include h2;
+    }
+  }
+
+  @include media('mobile-l') {
+    padding-top: 3rem;
+
+    &__title {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+
+    &__media,
+    &__content {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+.related {
+  @include section-gap;
+
+  &__inner {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid $color-divider;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  @include media('tablet') {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem 2rem;
+    }
+  }
+
+  @include media('mobile-l') {
+    &__title {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      margin-top: 2rem;
+    }
+  }
+}
