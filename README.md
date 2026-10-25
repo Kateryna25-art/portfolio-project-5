@@ -1,4 +1,4 @@
-Tech Stack
+📌Tech Stack
  PHP (WordPress Custom Theme Architecture, Dynamic Loops, Functions & Hooks)
  Custom Fields & Settings: Advanced Custom Fields (ACF), WP Customizer API
  HTML5 / CSS3 / SCSS (Modular SCSS architecture: Abstracts, Base, Components, Layout, Pages, Sections)
